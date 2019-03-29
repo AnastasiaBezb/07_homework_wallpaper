@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container"> <!__
+    <div class="row">
+        <div class="col">
+            <h1>{{title}}</h1>
+
+            <form>
+                <div class="form-group">
+                    <label for="width">Width</label>
+                    <input id="width" class="form-control" name="width" type="text" value="{{width}}"
+                           placeholder="width of the room in m" required>
+                </div>
+                <div class="form-group">
+                    <label for="length">Length</label>
+                    <input id="length" class="form-control" name="length" type="text" value="{{length}}"
+                           placeholder="length of the room in m" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height</label>
+                    <input id="height" class="form-control" name="height" type="text" value="{{height}}"
+                           placeholder="height of the room in m" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wallpaper_width">Wallpaper width</label>
+                    <input id="wallpaper_width" class="form-control" name="wallpaper_width" type="text" value="{{wallpaper_width}}"
+                           placeholder="wallpaper width in m" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wallpaper_length">Wallpaper length</label>
+                    <input id="wallpaper_length" class="form-control" name="wallpaper_length" type="text" value="{{wallpaper_length}}"
+                           placeholder="wallpaper length in m" required>
+                </div>
+
+
+                <button class="btn btn-primary">Calculate</button>
+            </form>
+
+            {% if total_number_of_rolls %}
+            <div class="alert alert-{{level}}">Total number of rolls: {{total_number_of_rolls}}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

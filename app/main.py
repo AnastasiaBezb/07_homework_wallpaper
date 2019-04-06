@@ -1,9 +1,13 @@
+import os
+
+import waitress
+
 from flask import Flask, render_template, request
 
-from lib import number_of_rolls
+from app.lib import number_of_rolls
 
 
-def main():
+def start():
     app = Flask(__name__)
 
     @app.route('/')  # правило сопоставления запроса URL  фун-ии обработчика
@@ -28,8 +32,13 @@ def main():
 
         return render_template('index.html', title='Wallpaper calculator')
 
-    app.run(port=9876, debug=True)
+    print(os.getenv('APP_ENV'))
+    print(os.getenv('PORT'))
+    if os.getenv('APP_ENV') == 'PROD' and os.getenv('PORT'):
+        waitress.serve(app, port=os.getenv('PORT'))
+    else:
+        app.run(port=9876, debug=True)
 
 
 if __name__ == '__main__':
-    main()
+    start()
